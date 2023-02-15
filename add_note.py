@@ -27,7 +27,9 @@ def add():
     if save.lower().__eq__("yes"):
         with open('notes.json', 'w', encoding='utf-8') as file:
             json.dump(data, file, indent=3)
+        menu.menu()
     elif save.lower().__eq__("no"):
         menu.menu()
     else:
         print("Введена не верная команда!")
+        menu.menu()

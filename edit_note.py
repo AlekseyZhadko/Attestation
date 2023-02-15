@@ -7,7 +7,7 @@ import menu
 def edit():
     print("Просмотреть все записки - all")
     print("Редактировать записку с id - editid")
-    print("Вернуться в меню: menu")
+    print("Вернуться в меню - menu")
     command = input("Введите команду: ")
 
     with open('notes.json', 'r', encoding='utf-8') as file:
@@ -16,6 +16,7 @@ def edit():
     if command.lower().__eq__("all"):
         for item in data['notes']['items']:
             print(item['id'], item['header'] + ";", item['text'] + ";", item['create_date'])
+        edit()
     elif command.lower().__eq__("editid"):
         id_note = input("Введите id записки: ")
         if id_note.isdigit():
@@ -37,6 +38,7 @@ def edit():
                         menu.menu()
                     else:
                         print("Введена не верная команда!")
+                        edit()
         else:
             print("Введен некорректный id")
             edit()
