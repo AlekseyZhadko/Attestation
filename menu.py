@@ -23,3 +23,6 @@ def menu():
         read()
     elif command.lower().__eq__("exit"):
         sys.exit()
+    else:
+        print("Введенная команда не верна! Повторите Ввод")
+        menu()
